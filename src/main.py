@@ -37,12 +37,12 @@ def print_banner():
     print(banner)
 
 
-def get_target_date(days_offset: int = 2) -> str:
+def get_target_date(days_offset: int = 1) -> str:
     """
     获取目标日期
 
     Args:
-        days_offset: 向前偏移的天数，默认2天
+        days_offset: 向前偏移的天数，默认1天
 
     Returns:
         格式化的日期字符串 (YYYY-MM-DD)
@@ -67,8 +67,8 @@ def main():
     total_steps = 5 if email_enabled else 4
 
     try:
-        # 1. 计算目标日期 (今天 - 2天)
-        target_date = get_target_date(days_offset=2)
+        # 1. 计算目标日期 (今天 - 1天)
+        target_date = get_target_date(days_offset=1)
         print(f"[目标日期] {target_date}")
         print(f"   (北京时间: {datetime.now(timezone.utc) + timedelta(hours=8)} + 8h)")
         print()
