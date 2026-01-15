@@ -23,6 +23,12 @@ class HTMLGenerator:
         self.output_dir = Path(output_dir or OUTPUT_DIR)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+        # 创建 .nojekyll 文件，禁用 GitHub Pages 的 Jekyll 处理
+        # 这样可以直接提供静态 HTML 文件
+        nojekyll_file = self.output_dir / ".nojekyll"
+        if not nojekyll_file.exists():
+            nojekyll_file.touch()
+
         # 复制 CSS 文件到输出目录
         self._setup_css()
 
