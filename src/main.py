@@ -51,6 +51,16 @@ def get_target_date(days_offset: int = 1) -> str:
     return target_date.strftime("%Y-%m-%d")
 
 
+def get_today_date() -> str:
+    """
+    获取今天的日期（用于显示）
+
+    Returns:
+        格式化的日期字符串 (YYYY-MM-DD)
+    """
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
 def main():
     """主函数"""
     print_banner()
@@ -67,9 +77,14 @@ def main():
     total_steps = 5 if email_enabled else 4
 
     try:
-        # 1. 计算目标日期 (今天 - 1天)
-        target_date = get_target_date(days_offset=1)
-        print(f"[目标日期] {target_date}")
+        # 1. 计算日期
+        # content_date: 用于获取资讯内容（昨天的资讯）
+        content_date = get_target_date(days_offset=1)
+        # display_date: 用于 title 和 url 显示（今天的日期）
+        display_date = get_today_date()
+
+        print(f"[资讯日期] {content_date} (获取昨天的资讯)")
+        print(f"[显示日期] {display_date} (用于 title 和 url)")
         print(f"   (北京时间: {datetime.now(timezone.utc) + timedelta(hours=8)} + 8h)")
         print()
 
@@ -84,24 +99,24 @@ def main():
             print(f"   RSS 日期范围: {date_range[0]} ~ {date_range[1]}")
         print()
 
-        # 3. 查找目标日期的内容
+        # 3. 查找目标日期的内容（使用昨天的日期获取资讯）
         print(f"[步骤 2/{total_steps}] 查找目标日期的资讯...")
-        content = fetcher.get_content_by_date(target_date, rss_data)
+        content = fetcher.get_content_by_date(content_date, rss_data)
 
         if not content:
             print("   目标日期无内容，生成空页面")
             if email_enabled:
                 notifier.send_empty(
-                    target_date,
-                    f"RSS 中未找到 {target_date} 的资讯内容。"
+                    display_date,
+                    f"RSS 中未找到 {content_date} 的资讯内容。"
                     f"RSS 可用日期范围: {date_range[0]} ~ {date_range[1]}"
                 )
 
-            # 生成空页面
+            # 生成空页面（使用今天的日期）
             generator = HTMLGenerator()
             generator.generate_css()
-            generator.generate_empty(target_date)
-            generator.update_index(target_date, {"summary": ["暂无资讯"]})
+            generator.generate_empty(display_date)
+            generator.update_index(display_date, {"summary": ["暂无资讯"]})
 
             print("   完成")
             return
@@ -109,16 +124,16 @@ def main():
         print(f"   找到资讯: {content.get('title', '')[:60]}...")
         print()
 
-        # 4. 调用 Claude 分析
+        # 4. 调用 Claude 分析（使用今天的日期作为显示日期）
         print(f"[步骤 3/{total_steps}] 调用 Claude 进行智能分析...")
         analyzer = ClaudeAnalyzer()
-        result = analyzer.analyze(content, target_date)
+        result = analyzer.analyze(content, display_date)
 
         # 检查分析状态
         if result.get("status") == "empty":
             print("   分析结果为空")
             if email_enabled:
-                notifier.send_empty(target_date, result.get("reason", "内容分析为空"))
+                notifier.send_empty(display_date, result.get("reason", "内容分析为空"))
             return
 
         print()
@@ -128,7 +143,7 @@ def main():
         generator = HTMLGenerator()
         generator.generate_css()
 
-        # 生成日报页面
+        # 生成日报页面（使用今天的日期作为文件名和标题）
         html_path = generator.generate_daily(result)
         print(f"   文件路径: {html_path}")
         print()
@@ -142,7 +157,7 @@ def main():
         # 6. 发送成功通知（可选）
         if email_enabled:
             print(f"[步骤 5/{total_steps}] 发送邮件通知...")
-            notifier.send_success(target_date, total_items)
+            notifier.send_success(display_date, total_items)
             print()
         else:
             print("   (邮件通知未配置，跳过)")
@@ -153,7 +168,7 @@ def main():
         print("║                                                              ║")
         print("║   ✅ 任务完成!                                              ║")
         print("║                                                              ║")
-        print(f"║   日期: {target_date}                                        ║")
+        print(f"║   显示日期: {display_date} (资讯来自 {content_date})      ║")
         print(f"║   资讯数: {total_items} 条                                          ║")
         print(f"║   主题: {result.get('theme', 'blue')}                                                ║")
         print("║                                                              ║")
@@ -171,8 +186,8 @@ def main():
         # 发送错误通知（如果配置了邮件）
         if email_enabled:
             try:
-                target_date = get_target_date(days_offset=2)
-                notifier.send_error(target_date, str(e))
+                error_date = get_today_date()
+                notifier.send_error(error_date, str(e))
             except:
                 pass
 
