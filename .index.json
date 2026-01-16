@@ -1,8 +1,8 @@
 [
   {
-    "date": "2026-01-15",
-    "url": "2026-01-15.html",
-    "summary": "OpenAI 发布 GPT-5.2-Codex，定位最强长时程任务模型，Cursor 集成后实现一周自主运行编写 300 万行 Rust 代码。",
-    "timestamp": "2026-01-15T13:16:49.596596"
+    "date": "2026-01-16",
+    "url": "2026-01-16.html",
+    "summary": "OpenAI 发布 GPT-5.2-Codex API，专注长周期任务与代码安全，Cursor 集成后实现连续一周自主运行。",
+    "timestamp": "2026-01-16T01:09:13.905276"
   }
 ]
