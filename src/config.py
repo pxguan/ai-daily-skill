@@ -212,6 +212,50 @@ HTML_TEMPLATE_CONFIG = {
     "viewport": "width=device-width, initial-scale=1.0"
 }
 
+# ============================================================================
+# 图片生成 API 配置 (Firefly Card API)
+# ============================================================================
+FIREFLY_API_URL = os.getenv("FIREFLY_API_URL", "https://fireflycard-api.302ai.cn/api/saveImg")
+FIREFLY_API_KEY = os.getenv("FIREFLY_API_KEY", "")  # 如果需要 API Key
+
+# Firefly Card API 默认配置
+FIREFLY_DEFAULT_CONFIG = {
+    "font": "SourceHanSerifCN_Bold",
+    "align": "left",
+    "width": 400,
+    "height": 533,
+    "fontScale": 1.2,
+    "ratio": "3:4",
+    "padding": 30,
+    "switchConfig": {
+        "showIcon": False,
+        "showTitle": False,
+        "showContent": True,
+        "showTranslation": False,
+        "showAuthor": False,
+        "showQRCode": False,
+        "showSignature": False,
+        "showQuotes": False,
+        "showWatermark": False
+    },
+    "temp": "tempBlackSun",
+    "fonts": {
+        "title": 2.1329337874720125,
+        "content": 1.9079435748084854,
+        "translate": 1.1415042034904328,
+        "author": 0.801229782035275
+    },
+    "textColor": "rgba(0,0,0,0.8)",
+    "subTempId": "tempBlackSun",
+    "borderRadius": 15,
+    "color": "pure-ray-1",
+    "useFont": "SourceHanSerifCN_Bold",
+    "useLoadingFont": True
+}
+
+# 是否启用图片生成功能
+ENABLE_IMAGE_GENERATION = os.getenv("ENABLE_IMAGE_GENERATION", "false").lower() == "true"
+
 
 def get_theme(theme_name: str) -> dict:
     """获取指定主题配置"""

@@ -71,6 +71,14 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           NOTIFICATION_TO: ${{ secrets.NOTIFICATION_TO }}
 
+          # 图片生成 API 配置（Firefly Card API）
+          ENABLE_IMAGE_GENERATION: ${{ secrets.ENABLE_IMAGE_GENERATION || 'true' }}
+          FIREFLY_API_URL: ${{ secrets.FIREFLY_API_URL || 'https://fireflycard-api.302ai.cn/api/saveImg' }}
+          FIREFLY_API_KEY: ${{ secrets.FIREFLY_API_KEY }}
+
+          # GitHub Pages URL（用于邮件中的链接）
+          GITHUB_PAGES_URL: ${{ github.event.repository.html_url }}.github.io
+
           # GitHub 环境变量（用于日志链接和页面 URL）
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}

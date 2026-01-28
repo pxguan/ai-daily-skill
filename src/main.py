@@ -14,12 +14,15 @@ sys.path.insert(0, str(project_root))
 
 from src.config import (
     ZHIPU_API_KEY,
-    OUTPUT_DIR
+    OUTPUT_DIR,
+    ENABLE_IMAGE_GENERATION
 )
 from src.rss_fetcher import RSSFetcher
 from src.claude_analyzer import ClaudeAnalyzer
 from src.html_generator import HTMLGenerator
 from src.notifier import EmailNotifier
+from src.image_generator import ImageGenerator
+from src.xiaohongshu_generator import XiaohongshuGenerator
 
 
 def print_banner():
@@ -74,7 +77,10 @@ def main():
     # 初始化组件
     notifier = EmailNotifier()
     email_enabled = notifier._is_configured()
-    total_steps = 5 if email_enabled else 4
+    image_enabled = ENABLE_IMAGE_GENERATION
+    total_steps = 6 if email_enabled else 5
+    if image_enabled:
+        total_steps += 1
 
     try:
         # 1. 计算日期
@@ -154,9 +160,35 @@ def main():
             for cat in result.get('categories', [])
         )
 
-        # 6. 发送成功通知（可选）
+        # 6. 生成分享图片（可选）
+        image_path = None
+        xhs_path = None
+        if image_enabled:
+            print(f"[步骤 5/{total_steps}] 生成分享卡片图片...")
+            image_gen = ImageGenerator()
+            image_path = image_gen.generate_from_analysis_result(
+                result,
+                output_path=str(Path(OUTPUT_DIR) / "images" / f"{target_date}.png")
+            )
+            if image_path:
+                print(f"   图片已保存: {image_path}")
+            else:
+                print("   图片生成失败或跳过")
+
+            # 生成小红书封面
+            print(f"   生成小红书封面...")
+            xhs_gen = XiaohongshuGenerator()
+            xhs_path = xhs_gen.generate(result)
+            print(f"   小红书封面: {xhs_path}")
+            print()
+        else:
+            print("   (图片生成未启用，跳过)")
+            print()
+
+        # 7. 发送成功通知（可选）
         if email_enabled:
-            print(f"[步骤 5/{total_steps}] 发送邮件通知...")
+            step_num = 6 if image_enabled else 5
+            print(f"[步骤 {step_num}/{total_steps}] 发送邮件通知...")
             notifier.send_success(display_date, total_items)
             print()
         else:

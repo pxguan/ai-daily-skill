@@ -1,11 +1,11 @@
 ---
 name: ai-daily-news
-description: Fetches AI news from smol.ai RSS and generates structured markdown with intelligent summarization and categorization. Optionally creates beautiful HTML webpages with Apple-style themes. Use when user asks about AI news, daily tech updates, or wants news organized by date or category.
+description: Fetches AI news from smol.ai RSS and generates structured markdown with intelligent summarization and categorization. Optionally creates beautiful HTML webpages with Apple-style themes and shareable card images. Use when user asks about AI news, daily tech updates, or wants news organized by date or category.
 ---
 
 # AI Daily News
 
-Fetches AI industry news from smol.ai, intelligently summarizes and categorizes using built-in Claude AI capabilities, outputs structured markdown, and optionally generates themed webpages.
+Fetches AI industry news from smol.ai, intelligently summarizes and categorizes using built-in Claude AI capabilities, outputs structured markdown, and optionally generates themed webpages and shareable card images.
 
 ## Quick Start
 
@@ -21,6 +21,10 @@ Fetches AI industry news from smol.ai, intelligently summarizes and categorizes 
 
 # Generate webpage
 昨天AI资讯，生成网页
+
+# Generate shareable card image
+昨天AI资讯，生成分享图片
+生成日报卡片图片
 ```
 
 ## Supported Query Types
@@ -31,6 +35,7 @@ Fetches AI industry news from smol.ai, intelligently summarizes and categorizes 
 | **绝对日期** | "2026-01-13的新闻" | YYYY-MM-DD format |
 | **分类筛选** | "模型相关资讯" "产品动态" | Filter by category |
 | **网页生成** | "生成网页" "制作HTML页面" | Optional webpage generation |
+| **图片生成** | "生成图片" "生成分享卡片" "制作日报卡片" | Generate shareable card image |
 
 ---
 
@@ -46,6 +51,7 @@ Progress:
 - [ ] Step 4: Extract and analyze content
 - [ ] Step 5: Generate structured markdown
 - [ ] Step 6: Ask about webpage generation (if requested)
+- [ ] Step 7: Generate shareable card image (if requested)
 ```
 
 ---
@@ -241,6 +247,77 @@ Save to `docs/{date}.html`:
 cat > docs/2026-01-13.html << 'EOF'
 {generated_html}
 EOF
+```
+
+---
+
+## Step 7: Shareable Card Image Generation (Optional)
+
+**Trigger when user explicitly requests**:
+
+- "生成图片"
+- "生成分享卡片"
+- "制作日报卡片"
+- "生成卡片图片"
+- "生成分享图"
+
+### Image Generation Process
+
+1. **Build condensed Markdown** for card display:
+   - Title and date
+   - Core summary (3-5 items)
+   - Top items per category (3 items each)
+   - Keywords
+
+2. **Call Firefly Card API**:
+   - API: `POST https://fireflycard-api.302ai.cn/api/saveImg`
+   - Body contains `content` field with Markdown
+   - Returns binary image stream (`Content-Type: image/png`)
+
+3. **Save and display result**:
+   - Save to `docs/images/{date}.png`
+   - Display preview or download link
+
+### API Request Format
+
+```json
+{
+  "content": "# AI Daily\\n## 2026年1月13日\\n...",
+  "font": "SourceHanSerifCN_Bold",
+  "align": "left",
+  "width": 400,
+  "height": 533,
+  "fontScale": 1.2,
+  "ratio": "3:4",
+  "padding": 30,
+  "switchConfig": {
+    "showIcon": false,
+    "showTitle": false,
+    "showContent": true,
+    "showTranslation": false,
+    "showAuthor": false,
+    "showQRCode": false,
+    "showSignature": false,
+    "showQuotes": false,
+    "showWatermark": false
+  },
+  "temp": "tempBlackSun",
+  "textColor": "rgba(0,0,0,0.8)",
+  "borderRadius": 15,
+  "color": "pure-ray-1"
+}
+```
+
+### Output Example
+
+```markdown
+📸 分享卡片已生成
+
+图片已保存到: docs/images/2026-01-13.png
+
+[预览图片](docs/images/2026-01-13.png)
+
+你可以将此图片分享到社交媒体！
 ```
 
 ---
