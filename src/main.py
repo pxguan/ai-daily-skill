@@ -105,16 +105,16 @@ def main():
             print(f"   RSS 日期范围: {date_range[0]} ~ {date_range[1]}")
         print()
 
-        # 3. 查找目标日期的内容（使用昨天的日期获取资讯）
+        # 3. 查找目标日期的内容（使用昨天的日期获取资讯，支持智能回退）
         print(f"[步骤 2/{total_steps}] 查找目标日期的资讯...")
-        content = fetcher.get_content_by_date(content_date, rss_data)
+        content = fetcher.get_content_by_date(content_date, rss_data, max_fallback_days=7)
 
         if not content:
             print("   目标日期无内容，生成空页面")
             if email_enabled:
                 notifier.send_empty(
                     display_date,
-                    f"RSS 中未找到 {content_date} 的资讯内容。"
+                    f"RSS 中未找到 {content_date} 及前 7 天的资讯内容。"
                     f"RSS 可用日期范围: {date_range[0]} ~ {date_range[1]}"
                 )
 
@@ -126,6 +126,12 @@ def main():
 
             print("   完成")
             return
+
+        # 检查是否使用了回退日期
+        actual_date = content.get('_actual_date')
+        requested_date = content.get('_requested_date')
+        if actual_date and actual_date != content_date:
+            print(f"   ⚠️ 使用回退日期: {actual_date} (原目标: {content_date})")
 
         print(f"   找到资讯: {content.get('title', '')[:60]}...")
         print()

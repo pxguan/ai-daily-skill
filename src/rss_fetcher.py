@@ -55,13 +55,14 @@ class RSSFetcher:
             self.fetch()
         return self._feed_data.entries
 
-    def get_content_by_date(self, target_date: str, feed: feedparser.FeedParserDict = None) -> Optional[Dict[str, Any]]:
+    def get_content_by_date(self, target_date: str, feed: feedparser.FeedParserDict = None, max_fallback_days: int = 7) -> Optional[Dict[str, Any]]:
         """
-        根据日期获取资讯内容
+        根据日期获取资讯内容，支持智能回退
 
         Args:
             target_date: 目标日期，格式: YYYY-MM-DD
             feed: RSS 数据，如果为空则重新获取
+            max_fallback_days: 最大回退天数，默认7天
 
         Returns:
             匹配的条目，如果没有找到则返回 None
@@ -78,21 +79,57 @@ class RSSFetcher:
 
         print(f"🔍 正在查找日期: {target_date}")
 
+        # 尝试目标日期
+        content = self._find_content_by_date(target_date, target_dt, feed)
+        if content:
+            return content
+
+        # 如果没找到，尝试回退到更早的日期
+        print(f"⚠️ 未找到 {target_date} 的资讯，尝试回退到更早的日期...")
+
+        for days_back in range(1, max_fallback_days + 1):
+            fallback_dt = target_dt - timedelta(days=days_back)
+            fallback_date = fallback_dt.strftime("%Y-%m-%d")
+
+            print(f"   尝试日期: {fallback_date} (回退 {days_back} 天)")
+            content = self._find_content_by_date(fallback_date, fallback_dt, feed)
+
+            if content:
+                print(f"✅ 找到资讯: {fallback_date}")
+                # 在返回的内容中标记实际使用的日期
+                content['_actual_date'] = fallback_date
+                content['_requested_date'] = target_date
+                return content
+
+        print(f"❌ 在 {max_fallback_days} 天内未找到任何资讯")
+        return None
+
+    def _find_content_by_date(self, date_str: str, date_dt: datetime, feed: feedparser.FeedParserDict) -> Optional[Dict[str, Any]]:
+        """
+        查找指定日期的内容（内部方法）
+
+        Args:
+            date_str: 日期字符串 (YYYY-MM-DD)
+            date_dt: 日期对象
+            feed: RSS 数据
+
+        Returns:
+            匹配的条目，如果没有找到则返回 None
+        """
         # 尝试多种方式匹配日期
         for entry in feed.entries:
             # 方法1: 检查 pubDate
             if hasattr(entry, 'published_parsed') and entry.published_parsed:
                 pub_dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
-                if self._is_same_day(pub_dt, target_dt):
+                if self._is_same_day(pub_dt, date_dt):
                     return self._extract_entry_content(entry)
 
             # 方法2: 从 link 中提取日期 (格式: .../issues/YY-MM-DD-slug/)
             if hasattr(entry, 'link'):
                 date_from_link = self._extract_date_from_link(entry.link)
-                if date_from_link and date_from_link == target_date:
+                if date_from_link and date_from_link == date_str:
                     return self._extract_entry_content(entry)
 
-        print(f"❌ 未找到日期 {target_date} 的资讯")
         return None
 
     def _is_same_day(self, dt1: datetime, dt2: datetime) -> bool:
