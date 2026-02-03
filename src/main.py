@@ -174,7 +174,7 @@ def main():
             image_gen = ImageGenerator()
             image_path = image_gen.generate_from_analysis_result(
                 result,
-                output_path=str(Path(OUTPUT_DIR) / "images" / f"{target_date}.png")
+                output_path=str(Path(OUTPUT_DIR) / "images" / f"{display_date}.png")
             )
             if image_path:
                 print(f"   图片已保存: {image_path}")
