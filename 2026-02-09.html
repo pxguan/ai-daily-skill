@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Daily · 2026年2月9日 星期一</title>
     <meta name="description" content="每日 AI 前沿资讯，智能分类，快速掌握核心动态">
-    <meta name="keywords" content="AI, 资讯, AI, 人工智能, 机器学习, 深度学习, 资讯, 日报">
+    <meta name="keywords" content="GPT-5.3-Codex, Claude Opus 4.6, Waymo, Genie 3, Hugging Face, Agent Swarms, RLM, World Models, Andrej Karpathy, LangChain, AI, 人工智能, 机器学习, 深度学习, 资讯, 日报">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-theme="blue">
@@ -24,8 +24,11 @@
             <section class="summary-card">
                 <h2 class="section-title">📌 今日核心摘要</h2>
                 <ul class="summary-list">
-                <li class="summary-item">AI 资讯分析遇到技术问题，以下是原始内容摘要</li>
-                <li class="summary-item">标题: not much happened today...</li>
+                <li class="summary-item">GPT-5.3-Codex 与 Claude Opus 4.6 进行深度对比，前者专注细节与任务，后者擅长规划与探索。</li>
+                <li class="summary-item">Waymo 联手 DeepMind 推出 Genie 3 世界模型，用于生成极端驾驶场景以测试自动驾驶系统。</li>
+                <li class="summary-item">Hugging Face 推出 Community Evals，旨在通过去中心化和版本控制解决基准测试的完整性问题。</li>
+                <li class="summary-item">Agent 开发范式向“RLM”演进，强调变量化状态管理和 REPL 原生系统以减少上下文污染。</li>
+                <li class="summary-item">行业讨论聚焦于 AI 自动化的边界，认为非可验证性工作短期内难以被完全替代。</li>
                 </ul>
             </section>
 
@@ -34,17 +37,131 @@
                 <div class="category-header">
                     <span class="category-icon">🤖</span>
                     <h2 class="category-title">模型发布</h2>
-                    <span class="category-count">1</span>
+                    <span class="category-count">2</span>
                 </div>
                 <div class="news-grid">
 
                 <article class="news-card">
                     <div class="news-card-header">
-                        <h3 class="news-title">not much happened today</h3>
-                        <a href="https://news.smol.ai/issues/26-02-06-not-much/" class="item-link" target="_blank" rel="noopener">详情</a>
+                        <h3 class="news-title">GPT-5.3-Codex vs Claude Opus 4.6</h3>
+                        <a href="https://twitter.com/rishdotblog/status/2019664800910135499" class="item-link" target="_blank" rel="noopener">详情</a>
                     </div>
-                    <p class="news-summary">**AI News** for early February 2026 highlights a detailed comparison between **GPT-5.3-Codex** and **Claude Opus 4.6**, with users noting **Codex's** strength in detailed scoped tasks and **Opus's** e</p>
-                    <div class="item-tags"><span class="tag">#AI</span></div>
+                    <p class="news-summary">用户测试显示 Codex 擅长具体任务与上下文压缩，Opus 擅长探索性工作与规划，两者均为代际升级。</p>
+                    <div class="item-tags"><span class="tag">#OpenAI</span> <span class="tag">#Anthropic</span> <span class="tag">#Coding Models</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Waymo x DeepMind Genie 3</h3>
+                        <a href="https://twitter.com/Waymo/status/2019804616746029508" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">基于 Genie 3 的世界模型能生成逼真的传感器数据（相机+激光雷达），用于模拟极端驾驶场景。</p>
+                    <div class="item-tags"><span class="tag">#Waymo</span> <span class="tag">#GoogleDeepMind</span> <span class="tag">#World Models</span> <span class="tag">#Autonomous Driving</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">📚</span>
+                    <h2 class="category-title">研究论文</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">RLM (Recursive Language Models) 概念</h3>
+                        <a href="https://twitter.com/deepfates/status/2019912654173651131" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">提出 Agent 应从 LLM+工具循环演变为 REPL 原生系统，通过变量存储上下文以减少“上下文腐烂”。</p>
+                    <div class="item-tags"><span class="tag">#Agents</span> <span class="tag">#System Architecture</span> <span class="tag">#RLM</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">InfMem 与 LatentMem 记忆机制</h3>
+                        <a href="https://twitter.com/omarsar0/status/2019759999170556189" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">InfMem 通过自适应停止减少长文档延迟；LatentMem 解决多智能体系统中的记忆同质化问题。</p>
+                    <div class="item-tags"><span class="tag">#Memory</span> <span class="tag">#Agents</span> <span class="tag">#Long Context</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">GRASP 规划算法</h3>
+                        <a href="https://twitter.com/michaelpsenka/status/2019870377032503595" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">一种基于梯度的随机并行规划器，用于改进世界模型中的长视野规划能力。</p>
+                    <div class="item-tags"><span class="tag">#Planning</span> <span class="tag">#AI Research</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🛠️</span>
+                    <h2 class="category-title">工具框架</h2>
+                    <span class="category-count">2</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Hugging Face Community Evals</h3>
+                        <a href="https://twitter.com/huggingface/status/2019754567685050384" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">推出社区评估基准，结果以版本化 YAML 存储，旨在提高评估的可追溯性与可复现性。</p>
+                    <div class="item-tags"><span class="tag">#Hugging Face</span> <span class="tag">#Benchmarking</span> <span class="tag">#Open Source</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">LangChain / LangSmith 更新</h3>
+                        <a href="https://twitter.com/LangChain/status/2019848808310706367" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">强调 Agent 可靠性来自工程化环境，包括追踪、沙箱和类型安全的状态控制。</p>
+                    <div class="item-tags"><span class="tag">#LangChain</span> <span class="tag">#Developer Tools</span> <span class="tag">#Agents</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🏆</span>
+                    <h2 class="category-title">行业事件</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Andrej Karpathy 对 AI 自动化的现实检验</h3>
+                        <a href="https://twitter.com/karpathy/status/2019851952033771710" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Karpathy 指出模型在开放式闭环工程中仍不可靠，容易产生虚假收益并忽略验证检查。</p>
+                    <div class="item-tags"><span class="tag">#Andrej Karpathy</span> <span class="tag">#AI Engineering</span> <span class="tag">#Reality Check</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">AI 自动化与就业讨论</h3>
+                        <a href="https://twitter.com/fchollet/status/2019610121371054455" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">François Chollet 认为由于大多数工作缺乏端到端可验证性，AI 长期内仍难以完全替代工作。</p>
+                    <div class="item-tags"><span class="tag">#François Chollet</span> <span class="tag">#Jobs</span> <span class="tag">#Automation</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">OpenAI 策略调整</h3>
+                        <a href="https://twitter.com/scaling01/status/2019856879858450742" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">据称 GPT-5.3-Codex 无独立 API，OpenAI 似乎有意引导用户使用 Codex 产品而非直接调用 API。</p>
+                    <div class="item-tags"><span class="tag">#OpenAI</span> <span class="tag">#Strategy</span> <span class="tag">#API</span></div>
                 </article>
 
                 </div>
@@ -52,7 +169,7 @@
 
 
         <footer class="keywords-footer">
-            <p>#关键词: AI | 资讯</p>
+            <p>#关键词: GPT-5.3-Codex | Claude Opus 4.6 | Waymo | Genie 3 | Hugging Face | Agent Swarms | RLM | World Models | Andrej Karpathy | LangChain</p>
         </footer>
 
         </main>
