@@ -233,12 +233,18 @@ class ClaudeAnalyzer:
         """解析 Claude 的响应结果"""
         # 清理可能的 markdown 代码块标记
         result_text = result_text.strip()
+
+        # 处理 ```json 开头
         if result_text.startswith("```json"):
-            result_text = result_text[7:]
-        if result_text.startswith("```"):
-            result_text = result_text[3:]
+            result_text = result_text[7:].lstrip()
+        # 处理 ``` 开头
+        elif result_text.startswith("```"):
+            result_text = result_text[3:].lstrip()
+
+        # 处理 ``` 结尾
         if result_text.endswith("```"):
-            result_text = result_text[:-3]
+            result_text = result_text[:-3].rstrip()
+
         result_text = result_text.strip()
 
         try:
