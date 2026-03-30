@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Daily · 2026年3月30日 星期一</title>
+    <meta name="description" content="每日 AI 前沿资讯，智能分类，快速掌握核心动态">
+    <meta name="keywords" content="Anthropic, Capybara, GLM-5.1, Hermes Agent, TurboQuant, OpenAI, LangChain, Local Inference, Qwen, World Models, AI, 人工智能, 机器学习, 深度学习, 资讯, 日报">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-theme="blue">
+    <div class="background-glow"></div>
+    <div class="geometric-lines"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-icon">🤖</div>
+            <h1>AI Daily</h1>
+            <div class="date-badge">2026年3月30日 星期一</div>
+        </header>
+
+        <main class="main-content">
+
+            <section class="summary-card">
+                <h2 class="section-title">📌 今日核心摘要</h2>
+                <ul class="summary-list">
+                <li class="summary-item">Anthropic 泄露新模型 Capybara，定位高于 Opus，算力与安全成瓶颈。</li>
+                <li class="summary-item">GLM-5.1 全面开放，开源编码模型性能逼近闭源，本地部署性价比提升。</li>
+                <li class="summary-item">Agent 走向产品化，Hermes Agent 集成 HF，LangChain 推出生产级评估工具。</li>
+                <li class="summary-item">Google TurboQuant 陷争议，被指论文基准不公，量化技术仍是优化焦点。</li>
+                <li class="summary-item">OpenAI Codex 生态转向工作流自动化，多智能体协作成为新 UX 范式。</li>
+                </ul>
+            </section>
+
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🤖</span>
+                    <h2 class="category-title">模型发布</h2>
+                    <span class="category-count">4</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Anthropic 泄露 Capybara 模型</h3>
+                        <a href="https://x.com/Yuchenj_UW/status/2037387996694200509" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Anthropic 被曝正在测试高于 Opus 的新 Capybara 档位，编码与推理能力更强，但受限于算力成本与安全对齐。</p>
+                    <div class="item-tags"><span class="tag">#Anthropic</span> <span class="tag">#Capybara</span> <span class="tag">#Claude</span> <span class="tag">#Leak</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">智谱 GLM-5.1 全面开放</h3>
+                        <a href="https://x.com/Zai_org/status/2037490078126084514" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">GLM-5.1 向所有编码计划用户开放，社区反馈显示其与 GPT 等闭源模型的差距正在显著缩小。</p>
+                    <div class="item-tags"><span class="tag">#Zhipu AI</span> <span class="tag">#GLM-5.1</span> <span class="tag">#Coding</span> <span class="tag">#Open Source</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Meta 发布 SAM 3.1</h3>
+                        <a href="https://x.com/AIatMeta/status/2037582117375553924" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Meta 推出 SAM 3.1 更新，支持对象多路复用，在单张 H100 上将视频处理吞吐量翻倍至 32 FPS。</p>
+                    <div class="item-tags"><span class="tag">#Meta</span> <span class="tag">#SAM 3.1</span> <span class="tag">#Vision</span> <span class="tag">#Speedup</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Cohere 开源 2B 转录模型</h3>
+                        <a href="https://x.com/victormustar/status/2037572662659104976" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Cohere 发布 2B 参数的 Apache-2.0 Transcribe 模型，实测在 A100 上 12 分钟可转录 33 小时音频。</p>
+                    <div class="item-tags"><span class="tag">#Cohere</span> <span class="tag">#Audio</span> <span class="tag">#Transcribe</span> <span class="tag">#Open Source</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">💼</span>
+                    <h2 class="category-title">产品动态</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Hermes Agent 集成 Hugging Face</h3>
+                        <a href="https://x.com/NousResearch/status/2037654827929338324" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Nous Research 的 Hermes Agent 集成 HF 推理，提供 28 个精选模型，被视为开源 Agent 的关键基础设施进展。</p>
+                    <div class="item-tags"><span class="tag">#NousResearch</span> <span class="tag">#Hermes Agent</span> <span class="tag">#Hugging Face</span> <span class="tag">#Agents</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">OpenAI Codex 插件生态</h3>
+                        <a href="https://x.com/OpenAIDevs/status/2037604273434018259" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">OpenAI 强调 Codex 插件与工作流自动化，Box 等企业推出插件，重心从对话转向持久化工作空间。</p>
+                    <div class="item-tags"><span class="tag">#OpenAI</span> <span class="tag">#Codex</span> <span class="tag">#Plugins</span> <span class="tag">#Automation</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">LangChain 推出 Agent 评估清单</h3>
+                        <a href="https://x.com/LangChain/status/2037590936234959355" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">LangChain 发布 Agent 评估准备清单和 Prompt Hub 环境，旨在解决 Agent 落地中的调试与版本管理难题。</p>
+                    <div class="item-tags"><span class="tag">#LangChain</span> <span class="tag">#Agents</span> <span class="tag">#DevTools</span> <span class="tag">#Evaluation</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🛠️</span>
+                    <h2 class="category-title">工具框架</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Google TurboQuant 陷学术争议</h3>
+                        <a href="https://x.com/gaoj0017/status/2037532673812443214" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Google 的 ICLR 2026 论文 TurboQuant 被指在理论和基准测试上对 RaBitQ 存在不公平比较，引发社区热议。</p>
+                    <div class="item-tags"><span class="tag">#Google</span> <span class="tag">#TurboQuant</span> <span class="tag">#Quantization</span> <span class="tag">#Controversy</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">本地推理与量化优化</h3>
+                        <a href="https://x.com/iotcoi/status/2037478891179135123" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">社区展示 Qwen 3.5 系列在本地部署的优异表现，TurboQuant vLLM fork 等工具进一步降低显存需求。</p>
+                    <div class="item-tags"><span class="tag">#Qwen</span> <span class="tag">#LocalLLM</span> <span class="tag">#vLLM</span> <span class="tag">#Quantization</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">AA-AgentPerf 基准发布</h3>
+                        <a href="https://x.com/ArtificialAnlys/status/2037562417836929315" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Artificial Analysis 发布 AA-AgentPerf，专注于长序列编码轨迹和并发吞吐量，提供更贴近部署的评估标准。</p>
+                    <div class="item-tags"><span class="tag">#Benchmark</span> <span class="tag">#Agents</span> <span class="tag">#Performance</span> <span class="tag">#Evaluation</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">📚</span>
+                    <h2 class="category-title">研究论文</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">LeCun 发布 LeWorldModel</h3>
+                        <a href="https://x.com/LiorOnAI/status/2037484990779339064" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Yann LeCun 团队发布开源世界模型 LeWorldModel，通过 SIGReg 技术防止表征坍塌，声称规划速度提升 48 倍。</p>
+                    <div class="item-tags"><span class="tag">#Meta</span> <span class="tag">#World Model</span> <span class="tag">#LeCun</span> <span class="tag">#Research</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">AI2 开源 MolmoBot 机器人套件</h3>
+                        <a href="https://x.com/allen_ai/status/2037590611990094259" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">AI2 发布完全在模拟中训练的开源机械臂操作套件 MolmoBot，公开了代码、数据和评估流程。</p>
+                    <div class="item-tags"><span class="tag">#AI2</span> <span class="tag">#Robotics</span> <span class="tag">#Simulation</span> <span class="tag">#Open Source</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Unitree 开源人形机器人数据集</h3>
+                        <a href="https://x.com/UnitreeRobotics/status/2037440578275946551" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">宇树科技开源 UnifoLM-WBT-Dataset，这是一个真实世界的人形机器人全身遥操作数据集。</p>
+                    <div class="item-tags"><span class="tag">#Unitree</span> <span class="tag">#Robotics</span> <span class="tag">#Dataset</span> <span class="tag">#Humanoid</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🏆</span>
+                    <h2 class="category-title">行业事件</h2>
+                    <span class="category-count">2</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Google 拟注资 Anthropic 数据中心</h3>
+                        <a href="https://x.com/FirstSquawk/status/2037586926375743904" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">据 FT 报道，Google 接近为 Anthropic 的数据中心提供资金，显示前沿模型竞争已转向电力与资本支出。</p>
+                    <div class="item-tags"><span class="tag">#Google</span> <span class="tag">#Anthropic</span> <span class="tag">#Funding</span> <span class="tag">#Infrastructure</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Anthropic 服务出现大规模故障</h3>
+                        <a href="https://x.com/dejavucoder/status/2037439287873159641" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">在 Capybara 泄露期间，Anthropic 遭遇广泛的服务中断（529 错误），反映出其基础设施在激进扩展下的压力。</p>
+                    <div class="item-tags"><span class="tag">#Anthropic</span> <span class="tag">#Outage</span> <span class="tag">#Infrastructure</span></div>
+                </article>
+
+                </div>
+            </section>
+
+
+        <footer class="keywords-footer">
+            <p>#关键词: Anthropic | Capybara | GLM-5.1 | Hermes Agent | TurboQuant | OpenAI | LangChain | Local Inference | Qwen | World Models</p>
+        </footer>
+
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 AI Daily · 由 Claude AI 智能生成</p>
+        </footer>
+    </div>
+</body>
+</html>
