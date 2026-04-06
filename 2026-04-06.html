@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Daily · 2026年4月6日 星期一</title>
+    <meta name="description" content="每日 AI 前沿资讯，智能分类，快速掌握核心动态">
+    <meta name="keywords" content="Gemma 4, Hermes Agent, Apache 2.0, Local Inference, Claude Code, Google, Nous Research, vLLM, METR, Recursive Language Models, AI, 人工智能, 机器学习, 深度学习, 资讯, 日报">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-theme="blue">
+    <div class="background-glow"></div>
+    <div class="geometric-lines"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-icon">🤖</div>
+            <h1>AI Daily</h1>
+            <div class="date-badge">2026年4月6日 星期一</div>
+        </header>
+
+        <main class="main-content">
+
+            <section class="summary-card">
+                <h2 class="section-title">📌 今日核心摘要</h2>
+                <ul class="summary-list">
+                <li class="summary-item">Google 发布 Gemma 4，采用 Apache 2.0 协议，主打推理与端侧部署，生态支持即日达成。</li>
+                <li class="summary-item">Hermes Agent 迅速崛起，开发者纷纷迁移，其插件化内存架构与稳定性受社区热捧。</li>
+                <li class="summary-item">本地推理性能成焦点，Gemma 4 26B 版本在单张 4090 与 M4 Mac 上表现优异。</li>
+                <li class="summary-item">Claude Code 遭遇速率限制争议，行业反思 AI 编程的认知瓶颈与并发管理问题。</li>
+                <li class="summary-item">METR 报告显示 AI 攻防能力翻倍周期缩短至 5.7 个月，长上下文管理技术持续演进。</li>
+                </ul>
+            </section>
+
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🤖</span>
+                    <h2 class="category-title">模型发布</h2>
+                    <span class="category-count">2</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Google Gemma 4 正式发布</h3>
+                        <a href="https://x.com/googlegemma/status/2040107948010242075" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">采用 Apache 2.0 开源协议，针对推理、代理工作流和多模态进行了优化，性能超越 10 倍参数量的模型。</p>
+                    <div class="item-tags"><span class="tag">#Google</span> <span class="tag">#Gemma 4</span> <span class="tag">#Open Weights</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Gemma 4 本地推理性能实测</h3>
+                        <a href="https://x.com/basecampbernie/status/2039847254534852783" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">26B MoE 版本在单张 RTX 4090 上可达 162 tok/s，M4 Mac mini 也能流畅运行，TurboQuant 显著降低显存占用。</p>
+                    <div class="item-tags"><span class="tag">#Benchmark</span> <span class="tag">#Local LLM</span> <span class="tag">#Consumer Hardware</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🛠️</span>
+                    <h2 class="category-title">工具框架</h2>
+                    <span class="category-count">4</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Hermes Agent 备受推崇</h3>
+                        <a href="https://x.com/Teknium/status/2039912975444926885" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">因稳定性与强大的任务处理能力，许多开发者从 OpenClaw 迁移至 Hermes，成为当日热门开源 Agent 框架。</p>
+                    <div class="item-tags"><span class="tag">#Nous Research</span> <span class="tag">#Agent</span> <span class="tag">#Open Source</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Hermes 插件化内存系统</h3>
+                        <a href="https://x.com/Teknium/status/2040151297991770435" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">重构支持多种内存后端（如 mem0, RetainDB），并引入凭证池与 TUI 内联差异显示，架构更加清晰。</p>
+                    <div class="item-tags"><span class="tag">#Memory System</span> <span class="tag">#Infrastructure</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Gemma 4 生态即日支持</h3>
+                        <a href="https://x.com/ggerganov/status/2039943099284140286" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">vLLM, llama.cpp, Ollama, Intel 硬件及 Hugging Face 等主流平台在发布首日全部完成适配支持。</p>
+                    <div class="item-tags"><span class="tag">#vLLM</span> <span class="tag">#llama.cpp</span> <span class="tag">#Ecosystem</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">LangChain 发布 Claude Code 追踪插件</h3>
+                        <a href="https://x.com/LangChain/status/2040137349313556633" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">支持将 Claude Code 的子代理、工具调用及 Token 使用情况记录至 LangSmith，增强可观测性。</p>
+                    <div class="item-tags"><span class="tag">#LangChain</span> <span class="tag">#Observability</span> <span class="tag">#DevTool</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">💼</span>
+                    <h2 class="category-title">产品动态</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">Claude Code 速率限制引争议</h3>
+                        <a href="https://x.com/theo/status/2039992633616224366" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">用户反馈 Claude Code 频繁触及速率上限，引发关于云端编码代理可用性与成本控制的讨论。</p>
+                    <div class="item-tags"><span class="tag">#Anthropic</span> <span class="tag">#Claude Code</span> <span class="tag">#Rate Limits</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">AI 编程的认知瓶颈</h3>
+                        <a href="https://x.com/lennysan/status/2039845666680176703" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">资深工程师指出，并行管理多个 AI Agent 极其消耗精力，目前 2-4 个会话可能是人脑协作的极限。</p>
+                    <div class="item-tags"><span class="tag">#Workflow</span> <span class="tag">#Productivity</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">微软 MAI-Transcribe-1 表现亮眼</h3>
+                        <a href="https://x.com/ArtificialAnlys/status/2039862705096659050" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">在语音转写榜单中取得 3.0% WER 的成绩，速度达到实时 69 倍，支持 25 种语言。</p>
+                    <div class="item-tags"><span class="tag">#Microsoft</span> <span class="tag">#STT</span> <span class="tag">#Speech</span></div>
+                </article>
+
+                </div>
+            </section>
+
+            <section class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">📚</span>
+                    <h2 class="category-title">研究论文</h2>
+                    <span class="category-count">3</span>
+                </div>
+                <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">METR 时间视野报告</h3>
+                        <a href="https://x.com/LyptusResearch/status/2039861448927739925" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">AI 在网络攻防领域的“时间视野”每 5.7 个月翻一番，Opus 4.6 等模型已能完成人类 3 小时难度的任务。</p>
+                    <div class="item-tags"><span class="tag">#METR</span> <span class="tag">#Cybersecurity</span> <span class="tag">#Benchmark</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">递归语言模型 (RLMs)</h3>
+                        <a href="https://x.com/DeepLearningAI/status/2039831830979838240" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">MIT 研究提出将上下文管理外包给外部环境，而非全部塞入 Prompt，解决长上下文系统问题。</p>
+                    <div class="item-tags"><span class="tag">#MIT</span> <span class="tag">#Long Context</span> <span class="tag">#Architecture</span></div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-card-header">
+                        <h3 class="news-title">简单自蒸馏 (SSD) 技术</h3>
+                        <a href="https://x.com/BoWang87/status/2039943931543331237" class="item-link" target="_blank" rel="noopener">详情</a>
+                    </div>
+                    <p class="news-summary">Apple 研究表明，无需验证器或正确性过滤，仅对模型自身输出进行微调，即可显著提升代码生成能力。</p>
+                    <div class="item-tags"><span class="tag">#Apple</span> <span class="tag">#Self-Distillation</span> <span class="tag">#Post-training</span></div>
+                </article>
+
+                </div>
+            </section>
+
+
+        <footer class="keywords-footer">
+            <p>#关键词: Gemma 4 | Hermes Agent | Apache 2.0 | Local Inference | Claude Code | Google | Nous Research | vLLM | METR | Recursive Language Models</p>
+        </footer>
+
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 AI Daily · 由 Claude AI 智能生成</p>
+        </footer>
+    </div>
+</body>
+</html>
